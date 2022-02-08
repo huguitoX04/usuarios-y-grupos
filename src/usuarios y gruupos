@@ -1,0 +1,93 @@
+1
+1.1
+1.2
+1.3
+sudo -s
+[sudo] contraseña para alumno: 
+root@alumno-HP-ProDesk-600-G5-MT:/home/alumno# adduser pepe
+Añadiendo el usuario `pepe' ...
+Añadiendo el nuevo grupo `pepe' (1001) ...
+Añadiendo el nuevo usuario `pepe' (1001) con grupo `pepe' ...
+root@alumno-HP-ProDesk-600-G5-MT:/home/alumno# adduser juan
+Añadiendo el usuario `juan' ...
+Añadiendo el nuevo grupo `juan' (1003) ...
+Añadiendo el nuevo usuario `juan' (1002) con grupo `juan' ...
+root@alumno-HP-ProDesk-600-G5-MT:/home/alumno# adduser maria
+Añadiendo el usuario `maria' ...
+Añadiendo el nuevo grupo `maria' (1005) ...
+Añadiendo el nuevo usuario `maria' (1004) con grupo `maria' ...
+
+1.4
+root@alumno-HP-ProDesk-600-G5-MT:/home# usermod -p juan juan
+root@alumno-HP-ProDesk-600-G5-MT:/home# usermod -p pepe pepe
+root@alumno-HP-ProDesk-600-G5-MT:/home# usermod -p maria maria
+
+
+
+2
+root@alumno-HP-ProDesk-600-G5-MT:/home/alumno# cat /etc/passwd
+
+pepe:x:1001:1001:,,,:/home/pepe:/bin/bash
+juan:x:1002:1003:,,,:/home/juan:/bin/bash
+maria:x:1004:1005:,,,:/home/maria:/bin/bash
+root@alumno-HP-ProDesk-600-G5-MT:/home/alumno# cat /etc/group
+pepe:x:1001:
+juan:x:1003:
+maria:x:1005:
+
+3
+root@alumno-HP-ProDesk-600-G5-MT:/home/alumno# addgroup contables
+Añadiendo el grupo `contables' (GID 1003) ...
+Hecho.
+
+3.1
+root@alumno-HP-ProDesk-600-G5-MT:/home# usermod -g contables pepe
+
+
+
+
+
+3.2
+drwxr-xr-x  2 pepe   contables 4096 ene 25 20:08 pepe
+
+
+
+3.3
+drwxr-xr-x  2 pepe   contables 4096 ene 25 20:08 pepe
+si debe serlo
+
+
+4.
+root@alumno-HP-ProDesk-600-G5-MT:/home# cd pepe
+root@alumno-HP-ProDesk-600-G5-MT:/home/pepe#
+
+
+
+4.1
+root@alumno-HP-ProDesk-600-G5-MT:/home# usermod -a -G contables juan
+4.2
+root@alumno-HP-ProDesk-600-G5-MT:/home# gpasswd contables
+Cambiando la contraseña para el grupo contables
+Nueva contraseña: alumno
+Vuelva a introducir la nueva contraseña:alumno
+
+
+
+5.1
+
+alumno@alumno-HP-ProDesk-600-G5-MT:~$ newgrp contables
+Contraseña: alumno
+
+
+5.2
+alumno@alumno-HP-ProDesk-600-G5-MT:~$ cat /etc/group
+
+
+
+5.3
+alumno@alumno-HP-ProDesk-600-G5-MT:~$ touch fichero01.txt
+
+
+
+
+
